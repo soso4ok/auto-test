@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Quiz Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Powered Quiz Application</h1>
+            <p>Practice for your professional certification exams</p>
+        </header>
+
+        <!-- Home Page - Topic Selection -->
+        <div id="home-page" class="page active">
+            <h2>Select an Exam Topic</h2>
+            <div class="topics-grid">
+                <div class="topic-card" data-topic="azure-az900">
+                    <h3>Azure AZ-900</h3>
+                    <p>Microsoft Azure Fundamentals</p>
+                    <div class="topic-sections">
+                        <ul>
+                            <li>Cloud concepts (25-30%)</li>
+                            <li>Azure architecture and services (35-40%)</li>
+                            <li>Azure management and governance (30-35%)</li>
+                        </ul>
+                    </div>
+                    <button class="select-topic-btn">Start Practice</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Setup Page -->
+        <div id="setup-page" class="page">
+            <h2 id="setup-title">Azure AZ-900 Quiz Setup</h2>
+            <div class="setup-form">
+                <label for="question-count">Number of Questions:</label>
+                <input type="number" id="question-count" min="5" max="50" value="15">
+                <button id="start-quiz-btn" class="primary-btn">Generate Quiz</button>
+                <button id="back-to-home-btn" class="secondary-btn">Back</button>
+            </div>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quiz-page" class="page">
+            <div class="quiz-header">
+                <h2 id="quiz-title">Quiz in Progress</h2>
+                <div class="progress">
+                    <span id="question-counter">Question 1 of 15</span>
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-container">
+                <div class="section-info">
+                    <span id="current-section">Section: Cloud Concepts</span>
+                </div>
+                <div class="question">
+                    <p id="question-text">Loading question...</p>
+                    <div id="question-options" class="options">
+                        <!-- Options will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="quiz-controls">
+                    <button id="prev-question-btn" class="secondary-btn" disabled>Previous</button>
+                    <button id="next-question-btn" class="primary-btn" disabled>Next</button>
+                    <button id="finish-quiz-btn" class="primary-btn" style="display: none;">Finish Quiz</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Page -->
+        <div id="results-page" class="page">
+            <h2>Quiz Results</h2>
+            <div class="results-summary">
+                <div class="score-display">
+                    <span id="score-percentage">85%</span>
+                    <span id="score-fraction">17/20 Correct</span>
+                </div>
+                <div class="section-breakdown">
+                    <h3>Performance by Section</h3>
+                    <div id="section-results">
+                        <!-- Section results will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-details">
+                <h3>Question Review</h3>
+                <div id="question-review">
+                    <!-- Question review will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="results-actions">
+                <button id="retake-quiz-btn" class="primary-btn">Retake Quiz</button>
+                <button id="new-topic-btn" class="secondary-btn">Choose New Topic</button>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="overlay">
+            <div class="spinner"></div>
+            <p>Generating quiz questions...</p>
+        </div>
+    </div>
+
+    <script src="quiz-data.js"></script>
+    <script src="ai-service.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
